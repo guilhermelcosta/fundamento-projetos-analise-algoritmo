@@ -1,8 +1,16 @@
-package util;
-
 public class Constantes {
 
+    public static final int UM = 1;
+
+    public static final int DOIS = 2;
+
+    public static final int TRES = 3;
+
+    public static final int QUATRO = 4;
+
     public static final int VINTE_MIL = 20000;
+
+    public static final int QUARENTA_MIL = 40000;
 
     public static final int DOIS_MILHOES_QUINHENTOS_MIL = 2500000;
 

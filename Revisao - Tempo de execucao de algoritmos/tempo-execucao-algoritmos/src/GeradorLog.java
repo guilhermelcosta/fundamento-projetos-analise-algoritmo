@@ -5,17 +5,16 @@ import java.io.PrintWriter;
 
 import static java.lang.String.format;
 import static java.time.LocalTime.now;
-import static util.Constantes.*;
 
 public class GeradorLog {
 
     public static void gerarLog(Cenario cenario, double tempoPercorridoSeg, double tempoPercorridoMs, String estruturaDados) throws IOException {
         try {
-            File arquivo = new File(CAMINHO_ARQUIVO);
+            File arquivo = new File(Constantes.CAMINHO_ARQUIVO);
 
             if (arquivo.exists()) {
                 try (PrintWriter printWriter = new PrintWriter(new FileWriter(arquivo, true))) {
-                    printWriter.println(format(CONFIGURACAO_COLUNAS,
+                    printWriter.println(format(Constantes.CONFIGURACAO_COLUNAS,
                             estruturaDados,
                             cenario.qtdePessoas(),
                             cenario.qtdeBuscas(),
@@ -24,9 +23,9 @@ public class GeradorLog {
                             now()));
                 }
             } else {
-                try (PrintWriter printWriter = new PrintWriter(CAMINHO_ARQUIVO)) {
-                    printWriter.println(format(CONFIGURACAO_COLUNAS, (Object[]) COLUNAS));
-                    printWriter.println(format(CONFIGURACAO_COLUNAS,
+                try (PrintWriter printWriter = new PrintWriter(Constantes.CAMINHO_ARQUIVO)) {
+                    printWriter.println(format(Constantes.CONFIGURACAO_COLUNAS, (Object[]) Constantes.COLUNAS));
+                    printWriter.println(format(Constantes.CONFIGURACAO_COLUNAS,
                             estruturaDados,
                             cenario.qtdePessoas(),
                             cenario.qtdeBuscas(),

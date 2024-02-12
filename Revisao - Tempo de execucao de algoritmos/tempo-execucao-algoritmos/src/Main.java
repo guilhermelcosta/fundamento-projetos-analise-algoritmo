@@ -4,7 +4,6 @@ import java.util.*;
 
 import static java.lang.String.format;
 import static java.lang.System.nanoTime;
-import static util.Constantes.*;
 
 /**
  * Aluno: Guilherme Lage da Costa
@@ -12,7 +11,7 @@ import static util.Constantes.*;
  * Data: 19 de fevereiro de 2024
  * Ambiente de realização dos testes:
  * - JDK: Java 17
- * - Processador: Ryzen 5 3600, 4.2 Ghz, 6 cores e 12 threads, 32mb de cache
+ * - Processador: AMD Ryzen 5 3600, 4.2 Ghz, 6 cores e 12 threads, 32mb de cache
  * - RAM: 16GB, 3000Ghz
  * - Sistema Operacional: Windows 11
  * - IDE: IntelliJ Ultimate
@@ -24,9 +23,10 @@ public class Main {
 
     public static void main(String[] args) {
 
-        cenarios.put(1, new Cenario(DOIS_MILHOES_QUINHENTOS_MIL, VINTE_MIL));
-        cenarios.put(2, new Cenario(CINCO_MILHOES, VINTE_MIL));
-        cenarios.put(3, new Cenario(DEZ_MILHOES, VINTE_MIL));
+        cenarios.put(Constantes.UM, new Cenario(Constantes.DOIS_MILHOES_QUINHENTOS_MIL, Constantes.VINTE_MIL));
+        cenarios.put(Constantes.DOIS, new Cenario(Constantes.CINCO_MILHOES, Constantes.VINTE_MIL));
+        cenarios.put(Constantes.TRES, new Cenario(Constantes.DEZ_MILHOES, Constantes.VINTE_MIL));
+        cenarios.put(Constantes.QUATRO, new Cenario(Constantes.DOIS_MILHOES_QUINHENTOS_MIL, Constantes.QUARENTA_MIL));
 
 //        Eu não quis criar um método genérico que aceitasse como parâmetro a estrutura de dados,
 //        para evitar validação de condições em ifs durante a execução dos testes, o que poderia mascarar os resultados
@@ -62,7 +62,7 @@ public class Main {
             long fim = nanoTime();
 
             try {
-                GeradorLog.gerarLog(cenario, converterParaSeg(inicio, fim), converterParaMs(inicio, fim), ARRAY_LIST);
+                GeradorLog.gerarLog(cenario, converterParaSeg(inicio, fim), converterParaMs(inicio, fim), Constantes.ARRAY_LIST);
             } catch (IOException e) {
                 throw new IllegalArgumentException(e);
             }
@@ -97,7 +97,7 @@ public class Main {
             long fim = nanoTime();
 
             try {
-                GeradorLog.gerarLog(cenario, converterParaSeg(inicio, fim), converterParaMs(inicio, fim), HASH_MAP);
+                GeradorLog.gerarLog(cenario, converterParaSeg(inicio, fim), converterParaMs(inicio, fim), Constantes.HASH_MAP);
             } catch (IOException e) {
                 throw new IllegalArgumentException(e);
             }
@@ -112,7 +112,7 @@ public class Main {
      * @return tempo percorrido, em ms
      */
     private static double converterParaMs(double inicio, double fim) {
-        return (fim - inicio) / NANO_PARA_MS;
+        return (fim - inicio) / Constantes.NANO_PARA_MS;
     }
 
     /**
@@ -123,6 +123,6 @@ public class Main {
      * @return tempo percorrido, em seg
      */
     private static double converterParaSeg(double inicio, double fim) {
-        return (converterParaMs(inicio, fim)) / NANO_PARA_SEG;
+        return (converterParaMs(inicio, fim)) / Constantes.NANO_PARA_SEG;
     }
 }
