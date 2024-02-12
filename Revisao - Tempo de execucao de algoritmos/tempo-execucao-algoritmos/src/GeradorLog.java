@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 import static java.lang.String.format;
-import static java.time.LocalTime.now;
+import static java.time.LocalDateTime.now;
 
 public class GeradorLog {
 
