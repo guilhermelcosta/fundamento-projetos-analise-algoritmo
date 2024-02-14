@@ -75,7 +75,7 @@ public class Main {
      */
     private static void realizarTestesHashMap() {
 
-        HashMap<Integer, Pessoa> hashMapPessoas = new HashMap<>();
+        Map<Integer, Pessoa> hashMapPessoas = new HashMap<>();
 
         cenarios.forEach((integer, cenario) -> {
 
