@@ -8,6 +8,15 @@ import static java.time.LocalDateTime.now;
 
 public class GeradorLog {
 
+    /**
+     * Gera log da execução
+     *
+     * @param cenario            cenário em análise do log
+     * @param tempoPercorridoSeg tempo percorrido na execução, em segundos
+     * @param tempoPercorridoMs  tempo percorrido na execução, em milissegundos
+     * @param estruturaDados     estrutura de dados utilizada (ArrayList ou HashMap)
+     * @throws IOException lança exceção caso ocorra erro ao executar uma função do arquivo de log
+     */
     public static void gerarLog(Cenario cenario, double tempoPercorridoSeg, double tempoPercorridoMs, String estruturaDados) throws IOException {
         try {
             File arquivo = new File(Constantes.CAMINHO_ARQUIVO);
