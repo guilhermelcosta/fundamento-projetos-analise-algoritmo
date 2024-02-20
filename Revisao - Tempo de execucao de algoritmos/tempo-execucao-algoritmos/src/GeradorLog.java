@@ -44,7 +44,7 @@ public class GeradorLog {
                 }
             }
         } catch (IOException e) {
-            throw new IOException("Erro ao salvar o arquivo.");
+            throw new IOException(Constantes.MSG_ERRO_ARQUIVO);
         }
     }
 }

@@ -1,3 +1,5 @@
+import static java.lang.String.format;
+
 public class Constantes {
 
     public static final int UM = 1;
@@ -24,7 +26,7 @@ public class Constantes {
 
     public static final String CONFIGURACAO_COLUNAS = "%-25s | %-25s | %-25s | %-25s | %-25s | %-25s";
 
-    public static final String[] COLUNAS = new String[]{
+    public static final String[] COLUNAS = {
             "Estrutura armazenamento", "Quantidade pessoas", "Quantidade buscas", "Tempo percorrido (Seg)", "Tempo percorrido (Ms)", "Data de execução"
     };
 
@@ -34,4 +36,9 @@ public class Constantes {
 
     public static final double NANO_PARA_SEG = 1_000d;
 
+    public static final String MSG_ERRO_ARQUIVO = format("erro ao salvar o arquivo no caminho: %s", Constantes.CAMINHO_ARQUIVO);
+
+    public static final String MSG_ERRO_PESSOA = "erro ao criar objeto Pessoa";
+
+    public static final String NOME = "Nome";
 }

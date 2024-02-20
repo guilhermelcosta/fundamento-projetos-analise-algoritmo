@@ -49,16 +49,23 @@ public class Main {
             long inicio = nanoTime();
 //            Iniciado em 1, pois a classe Pessoa não permite id = 0
 //            Preenchendo ArrayList de Pessoa
-            for (int i = 1; i <= qtdePessoas; i++) {
+            for (int i = Constantes.UM; i <= qtdePessoas; i++) {
                 try {
-                    listaPessoas.add(new Pessoa(i, format("Pessoa %s", i)));
+                    listaPessoas.add(new Pessoa(i, Constantes.NOME));
                 } catch (InvalidAttributeValueException e) {
-                    throw new IllegalArgumentException("erro ao criar objeto Pessoa");
+                    throw new IllegalArgumentException(Constantes.MSG_ERRO_PESSOA);
                 }
             }
 //            Realizando busca em ids aleatórios
-            for (int i = 1; i <= qtdeBuscas; i++)
-                listaPessoas.get(random.nextInt((qtdePessoas)));
+            for (int i = Constantes.UM; i <= qtdeBuscas; i++) {
+                Pessoa pessoa;
+                try {
+                    pessoa = new Pessoa(random.nextInt((qtdePessoas)) + Constantes.UM, Constantes.NOME);
+                } catch (InvalidAttributeValueException e) {
+                    throw new RuntimeException(e);
+                }
+                listaPessoas.indexOf(pessoa);
+            }
             long fim = nanoTime();
 
             try {
@@ -84,16 +91,16 @@ public class Main {
             long inicio = nanoTime();
 //            Iniciado em 1, pois a classe Pessoa não permite id = 0
 //            Preenchendo HashMap de Pessoa
-            for (int i = 1; i <= qtdePessoas; i++) {
+            for (int i = Constantes.UM; i <= qtdePessoas; i++) {
                 try {
-                    hashMapPessoas.put(i, new Pessoa(i, format("Pessoa %s", i)));
+                    hashMapPessoas.put(i, new Pessoa(i, Constantes.NOME));
                 } catch (InvalidAttributeValueException e) {
-                    throw new IllegalArgumentException("erro ao criar objeto Pessoa", e);
+                    throw new IllegalArgumentException(Constantes.MSG_ERRO_PESSOA);
                 }
             }
 //            Realizando busca em ids aleatórios
-            for (int i = 1; i <= qtdeBuscas; i++)
-                hashMapPessoas.get(random.nextInt((qtdePessoas)));
+            for (int i = Constantes.UM; i <= qtdeBuscas; i++)
+                hashMapPessoas.get(random.nextInt((qtdePessoas)) + Constantes.UM);
             long fim = nanoTime();
 
             try {
